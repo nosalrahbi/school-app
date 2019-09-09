@@ -1,0 +1,29 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+    <div class="container">
+        <div><h3>Search Students</h3></div>
+        <form class="add-bus-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="criteria"><%= __("Search by: ") %></label>
+                    <select class="form-control col-md-6" name="criteria" id="criteria" required>
+                        <option value="id">ID</option>
+                        <option value="first_name">First Name</option>
+                        <option value="last_name">Last Name</option>
+                        <option value="sex">Sex</option>
+                        <option value="passport_no">Passport No.</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="value"><%= __("Search for: ") %></label>
+                    <input type="text" class="form-control" name="value" id="value" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success text-center col-md-6"><%= __("Search") %></button>
+        </form>
+    </div>
+</div>
+</body>
+<% include partials/footer.ejs %>

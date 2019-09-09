@@ -1,0 +1,45 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+<div class="container-fluid">  
+    <div class="table-wrapper">
+        <div class = "form-group row justify-content-center">
+            <label class="control-label col-sm-1" for = "table_name"><%= __("Table name") %></label>
+            <input type = "text" class = "form-control col-sm-4" name="t_name" id ="t_name" value="<%= table.t_name %>" readonly>
+        </div>
+        <div class = "form-group row justify-content-center">
+            <label class="control-label col-sm-1" for = "clase_id"><%= __("Class") %></label>
+            <input type = "text" class = "form-control col-sm-4" name="clas_id" id ="clas_id" value="<%= table.class_id %>" readonly>
+        </div>
+        <table class="table table-hover table-bordered table-periods">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"><%= __("Day") %></th>
+                    <th scope="col"><%= __("Period 1") %></th>
+                    <th scope="col"><%= __("Period 2") %></th>
+                    <th scope="col"><%= __("Period 3") %></th>
+                    <th scope="col"><%= __("Period 4") %></th>
+                    <th scope="col"><%= __("Period 5") %></th>
+                    <th scope="col"><%= __("Period 6") %></th>
+                    <th scope="col"><%= __("Period 7") %></th>
+                    <th scope="col"><%= __("Period 8") %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% periods.forEach((period, index) => { %>
+                <tr>
+                    <th scope="row"><%= period.day_name %></th>
+                    <td><%= period.p1 %></td>
+                    <td><%= period.p2 %></td>
+                    <td><%= period.p3 %></td>
+                    <td><%= period.p4 %></td>
+                    <td><%= period.p5 %></td>
+                    <td><%= period.p6 %></td>
+                    <td><%= period.p7 %></td>
+                    <td><%= period.p8 %></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<% include partials/footer.ejs %>

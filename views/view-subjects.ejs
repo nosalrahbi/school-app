@@ -1,0 +1,37 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+    <div class="table-wrapper text-center">
+        <% if (subjects.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><%= __("ID") %></th>
+                        <th scope="col"><%= __("Subject English Name") %></th>
+                        <th scope="col"><%= __("Subject Arabic Name") %></th>
+                        <th scope= "col"><%= __("Action") %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% subjects.forEach((subject, index) => { %>
+                        <tr>
+                            <th scope="row"><%= subject.subject_id %></th>
+                            <td><%= subject.subject_ename %></td>
+                            <td><%= subject.subject_aname %></td>
+                            <td>
+                                <a href="/deleteSubject/<%= subject.subject_id %>" class="btn btn-sm btn-danger confirmation"><%= __("Delete") %></a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <div class="form-row text-center"> 
+                    <label class="col-sm-4"></label>    
+                    <a href="/addSubject" rel="noopener" class="btn btn-sm btn-success col-sm-4"><%= __("Add New Subject") %></a>
+                </div>    
+        <% } else { %>
+            <p class="text-center">No subjects found. Go <a href="/addSubject" >here</a> to add Subject.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+<% include partials/footer.ejs %>

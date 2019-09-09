@@ -1,0 +1,38 @@
+<% include ../partials/parentHeader.ejs %>
+<% include ../partials/messages.ejs %>
+    <div class="container"> 
+        <div class="table-wrapper">
+            <% if (dates && dates.length > 0) { %>
+            <form class="add-bus-form" action="" method="post" enctype="multipart/form-data">
+                <div class = "form-group row">
+                    <label class="control-label col-sm-2" for = "st_id"><%= __("Student Id") %></label>
+                    <input type = "text" class = "form-control col-sm-6" name="st_id" id ="st_id" value="<%= stid %>" readonly>
+                </div> 
+                <div class="form-group row">
+                        <label class = "control-label col-sm-2" for = "class_id"><%= __("Class Id") %></label>
+                       <input type="text" name="class_id" id="class_id" class="form-control col-sm-6" value="<%= class_id %>" readonly>
+
+                </div> 
+                <div class = "form-group row">
+                    <label class = "control-label col-sm-2" for = "task_date"><%= __("Task Date") %></label>
+                    <select name="task_date" class="form-control col-sm-6" id="task_date" required>
+                        <%  dates.forEach((date, index) => { %>
+                        <option><%= date.task_date %></option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div class="form-row"> 
+                    <label class = "control-label col-sm-3" for = "save"></label> 
+                    <button type="submit" class="btn btn-primary col-sm-4 float-right"><%= __("Find") %></button>
+                </div>
+            </form>
+            <% } else { %>
+                <div>
+                    <p class="text-center">No homewroks found</p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+</body>
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,39 @@
+<% include ../partials/parentHeader.ejs %>
+<% include ../partials/messages.ejs %>
+<div class="container">
+    <div class="table-wrapper">
+        <% if (parents.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><%= __("Parent ID") %></th>
+                        <th scope="col"><%= __("First Name") %></th>
+                        <th scope="col"><%= __("Last Name") %></th>
+                        <th scope="col"><%= __("Sex") %></th>
+                        <th scope="col"><%= __("Civil ID") %></th>
+                        <th scope="col"><%= __("Mobile") %></th>
+                        <th scope="col"><%= __("Email") %></th>
+                        <th scope="col"><%= __("Student ID") %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% parents.forEach((parent, index) => { %>
+                        <tr>
+                            <th scope="row"><%= parent.parent_id %></th>
+                            <td><%= parent.first_name %></td>
+                            <td><%= parent.last_name %></td>
+                            <td><%= parent.sex %></td>
+                            <td><%= parent.civil_id %></td>
+                            <td><%= parent.mobile %></td>
+                            <td><%= parent.email %></td>
+                            <td><%= parent.st_id %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+    </div>
+    <% } else { %>
+    <p class="text-center">Parents Not Found</p>
+    <% } %>
+</div>
+<% include ../partials/footer.ejs %>

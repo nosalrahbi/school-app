@@ -1,0 +1,86 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+<div class="container">
+<div class="table-wrapper">
+        <% if (totals && totals.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><%= __("Month") %></th>
+                        <th scope="col"><%= __("Fees") %></th>
+                        <th scope="col"><%= __("Income(other)") %></th>
+                        <th scope="col"><%= __("Expenses") %></th>
+                        <th scope="col"><%= __("Salaries") %></th>
+                        <th scope="col"><%= __("Summary") %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% totals.forEach((total, index) => { %>
+                        <tr>
+                            <th scope="row"><a href="/finances/<%= total.month_name %>" rel="noopener"><%= total.month_name %></a></th>
+                            <td><%= total.pay_sum %></td>
+                            <td><%= total.in_sum %></td>
+                            <td><%= total.ex_sum %></td>
+                            <td><%= total.salaries_sum %></td>
+                            <td><%=  total.pay_sum + total.in_sum - total.ex_sum - total.salaries_sum %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+        </table>
+
+        <% } else { %>
+            <p class="text-center">Data Not Found
+        <% } %>
+
+        <a href="/addIncome" rel="noopener" class="btn btn-md btn-success"><%= __("Add Income") %></a>
+        <a href="/addExpense" rel="noopener" class="btn btn-md btn-success"><%= __("Add Expense") %></a>
+    </div>
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script>
+    var bgColorI = 'rgba(255, 206, 86, 0.2)'
+    var bdColorI = 'rgba(255, 206, 86, 1)'
+    var bgColorE = 'rgba(75, 192, 192, 0.2)'
+    var bdColorE = 'rgba(75, 192, 192, 1)'
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+            datasets: [{
+                label: 'Monthly Income',
+                data: <%- JSON.stringify(income) %>,
+                backgroundColor: [
+                    bgColorI,bgColorI,bgColorI,bgColorI,bgColorI,bgColorI,bgColorI,bgColorI,bgColorI,bgColorI,bgColorI,bgColorI
+                ],
+                borderColor: [
+                    bdColorI,bdColorI,bdColorI,bdColorI,bdColorI,bdColorI,bdColorI,bdColorI,bdColorI,bdColorI,bdColorI,bdColorI,
+                ],
+                borderWidth: 1
+            }, {
+                label: 'Monthly Expenses',
+                data: <%- JSON.stringify(expense) %>,
+                backgroundColor: [
+                    bgColorE,bgColorE,bgColorE,bgColorE,bgColorE,bgColorE,bgColorE,bgColorE,bgColorE,bgColorE,bgColorE,bgColorE
+                ],
+                borderColor: [
+                    bdColorE,bdColorE,bdColorE,bdColorE,bdColorE,bdColorE,bdColorE,bdColorE,bdColorE,bdColorE,bdColorE,bdColorE
+                ],
+                borderWidth: 1  
+            }
+        ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+<% include partials/footer.ejs %>

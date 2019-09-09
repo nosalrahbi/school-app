@@ -1,0 +1,99 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+    <div class="container">
+        <form class="add-teacher-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="e_firstname"><%= __("First Name") %></label>
+                    <input type="text" class="form-control" name="e_firstname" id="e_firstname" value="<%= teacher.e_firstname %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="e_lastname"><%= __("Last Name") %></label>
+                    <input type="text" class="form-control" name="e_lastname" id="e_lastname" value="<%= teacher.e_lastname %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                        <label for="e_sex"><%= __("Sex") %></label>
+                        <select id="e_sex" name="e_sex" class="form-control" required>
+                            <option value="<%= teacher.e_sex %>" selected><%= teacher.e_sex %></option>
+                            <option>M</option>
+                            <option>F</option>
+                        </select>
+                </div>
+            </div> 
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="e_passport"><%= __("Passport No") %></label>
+                    <input type="number" class="form-control" name="e_passport" id="e_passport" value="<%= teacher.e_passport %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="e_dob"><%= __("Date of birth") %></label>
+                    <input type="date" class="form-control" name="e_dob" id="e_dob" value="<%= teacher.e_dob %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="e_civilid"><%= __("Civil ID") %></label>
+                    <input type="number" class="form-control" name="e_civilid" id="e_civilid" value="<%= teacher.e_civilid %>">
+                </div>
+            </div>    
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="marital"><%= __("Marital Status") %></label>
+                    <select id="marital" name="marital" class="form-control">
+                        <option><%= __("Single") %></option>
+                        <option><%= __("Married") %></option>
+                        <option><%= __("Divorced") %></option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="e_mobile"><%= __("Mobile") %></label>
+                    <input type="number" class="form-control" name="e_mobile" id="e_mobile" value="<%= teacher.e_mobile %>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="active"><%= __("Active") %></label>
+                    <select id="e_active" name="e_active" class="form-control" required>
+                        <option value="1" selected><%= __("Active") %></option>
+                        <option value="0"><%= __("Inactive") %></option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="bank"><%= __("Bank") %></label>
+                    <input type="text" class="form-control" name="bank" id="bank" value="<%= teacher.bank %>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="accno"><%= __("Account No") %></label>
+                    <input type="number" class="form-control" name="AccNo" id="AccNo" value="<%= teacher.AccNo %>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="e_salary"><%= __("Salary") %></label>
+                    <input type="number" class="form-control" name="e_salary" id="e_salary" value="<%= teacher.e_salary %>">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="e_qualification"><%= __("Qualification") %></label>
+                    <input type="text" class="form-control" name="e_qualification" id="e_qualification" value="<%= teacher.e_qualification %>">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="e_address"><%= __("Address") %></label>
+                    <input type="text" class="form-control" name="e_address" id="e_address" value="<%= teacher.e_address %>">
+                </div>
+            </div>
+            <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label for="e_note"><%= __("Note") %></label>
+                        <input type="text" class="form-control" name="e_note" id="e_note" value="<%= teacher.e_note %>">
+                    </div>
+            </div> 
+            <div class="form-row text-center">
+                <label class="col-sm-4"></label>
+                <button type="submit" class="btn btn-primary col-sm-4"><%= __("Save") %></button>
+            </div>       
+                
+        </form>
+
+    </div>
+</div>
+</body>
+<% include partials/footer.ejs %>

@@ -1,0 +1,48 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+    <div class="table-wrapper">
+        <% if (buses.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><%= __("ID") %></th>
+                        <th scope="col"><%= __("Bus Name") %></th>
+                        <th scope="col"><%= __("Driver") %></th>
+                        <th scope="col"><%= __("Mobile") %></th>
+                        <th scope="col"><%= __("Supervisor") %></th>
+                        <th scope="col"><%= __("Mobile") %></th>
+                        <th scope="col"><%= __("Area") %></th>
+                        <th scope="col"><%= __("Action") %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% buses.forEach((bus, index) => { %>
+                        <tr>
+                            <th scope="row"><a href="/viewBus/<%= bus.bus_id %>" rel="noopener" class="btn btn-sm btn-success"><%= bus.bus_id %></th>
+                            <td><%= bus.bus_name %></td>
+                            <td><%= bus.driver %></td>
+                            <td><%= bus.drv_mobile %></td>
+                            <td><%= bus.bus_super %></td>
+                            <td><%= bus.sup_mobile %></td>
+                            <td><%= bus.area %></td>
+                            <td>
+                                <a href="/editBus/<%= bus.bus_id %>" rel="noopener" class="btn btn-sm btn-success"><%= __("Edit") %></a>
+                                <a href="/deleteBus/<%= bus.bus_id %>" class="btn btn-sm btn-danger confirmation"><%= __("Delete") %></a>
+                                <a href="/addSt2Bus/<%= bus.bus_id %>/bus_id/1" rel="noopener" class="btn btn-sm btn-warning"><%= __("Add Students") %></a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <a href="/addBus" rel="noopener" class="btn btn-md btn-success col-sm-4"><%= __("Add New Bus") %></a>
+            </div>
+            
+            
+        <% } else { %>
+            <p class="text-center">No buses found. Go <a href="/addBus" >here</a> to add bus.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+<% include partials/footer.ejs %>

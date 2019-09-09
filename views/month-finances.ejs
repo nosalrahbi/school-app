@@ -1,0 +1,169 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+<div class="container">
+    <div class="table-wrapper">
+        
+        <% if (payments.length > 0) {%>
+        <table class="table table-hovered">
+            <thead class="table-info">
+                <td colspan="6" class="lead font-weight-bold"><%= __("Payments") %></td>
+            </thead>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"><%= __("Payment ID") %></th>
+                    <th scope="col"><%= __("Payment Date") %></th>
+                    <th scope="col"><%= __("Amount") %></th>
+                    <th scope="col"><%= __("Category") %></th>
+                    <th scope="col"><%= __("Note") %></th>
+                    <th scope="col"><%= __("Student ID") %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let total= 0 %> 
+                <% payments.forEach((payment, index) => { %>
+                    <% total = total + payment.amount %>
+                    <tr>
+                        <th scope="row"><%= payment.pay_id %></th>
+                        <td><%= payment.pay_date %></td>
+                        <td><%= payment.amount %></td>
+                        <td><%= payment.category %></td>
+                        <td><%= payment.note %></td>
+                        <td><%= payment.st_id %></td>
+                    </tr>
+                    <tr class="table-warning">
+                        <% }) %>
+                        <th scope="row">Total</th>
+                        <td colspan="5" class="font-weight-bold"><%= total %></td>
+                    </tr>    
+            </tbody>
+        </table>                 
+    </div>
+    <% } else { %>
+        <p class="text-center"><%= __("No Payments Found") %></p>
+    <% } %>
+    <hr>
+    <div class="table-wrapper">
+        <% if (incomes.length > 0) {%>
+        <table class="table table-hovered">
+            <thead class="table-info">
+                <td colspan="7" class="lead font-weight-bold"><%= __("Incomes") %></td>
+            </thead>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"><%= __("Income ID") %></th>
+                    <th scope="col"><%= __("Date") %></th>
+                    <th scope="col"><%= __("Invoice no") %></th>
+                    <th scope="col"><%= __("Category") %></th>
+                    <th scope="col"><%= __("Item") %></th>
+                    <th scope="col"><%= __("Quantity") %></th>
+                    <th scope="col"><%= __("Price") %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let total1= 0 %> 
+                <% incomes.forEach((income, index) => { %>
+                    <% total1 = total1 + (income.in_quantity*income.in_price) %>
+                    <tr>
+                        <th scope="row"><%= income.in_id %></th>
+                        <td><%= income.in_date %></td>
+                        <td><%= income.invoice_no %></td>
+                        <td><%= income.in_category %></td>
+                        <td><%= income.in_item %></td>
+                        <td><%= income.in_quantity %></td>
+                        <td><%= income.in_price %></td>
+                    </tr>
+                    <tr class="table-warning">
+                        <% }) %>
+                        <th scope="row">Total</th>
+                        <td colspan="6" class="font-weight-bold"><%= total1 %></td>
+                    </tr> 
+            </tbody>
+        </table>                 
+    </div>
+    <% } else { %>
+        <p class="text-center"><%= __("No Incomes Found") %></p>
+    <% } %>
+    <hr>
+    <div class="table-wrapper">
+        <% if (expenses.length > 0) {%>
+        <table class="table table-hovered">
+            <thead class="table-info">
+                <td colspan="7" class="lead font-weight-bold"><%= __("Expenses") %></td>
+            </thead>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"><%= __("Expense ID") %></th>
+                    <th scope="col"><%= __("Date") %></th>
+                    <th scope="col"><%= __("Invoice no") %></th>
+                    <th scope="col"><%= __("Category") %></th>
+                    <th scope="col"><%= __("Item") %></th>
+                    <th scope="col"><%= __("Quantity") %></th>
+                    <th scope="col"><%= __("Price") %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let total2= 0 %> 
+                <% expenses.forEach((expense, index) => { %>
+                    <% total2 = total2 + (expense.ex_quantity*expense.ex_price) %>
+                    <tr>
+                        <th scope="row"><%= expense.ex_id %></th>
+                        <td><%= expense.ex_date %></td>
+                        <td><%= expense.invoice_no %></td>
+                        <td><%= expense.ex_category %></td>
+                        <td><%= expense.ex_item %></td>
+                        <td><%= expense.ex_quantity %></td>
+                        <td><%= expense.ex_price %></td>
+                    </tr>
+                    <tr class="table-warning">
+                        <% }) %>
+                        <th scope="row">Total</th>
+                        <td colspan="6" class="font-weight-bold"><%= total2 %></td>
+                    </tr> 
+            </tbody>
+        </table>                 
+    </div>
+    <% } else { %>
+        <p class="text-center"><%= __("No Expenses Found") %></p>
+    <% } %>
+<hr>
+    <div class="table-wrapper">
+        <% if (salaries.length > 0) {%>
+        <table class="table table-hovered">
+                <thead class="table-info">
+                    <td colspan="5" class="lead font-weight-bold"><%= __("Salaries") %></td>
+                </thead>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"><%= __("ID") %></th>
+                    <th scope="col"><%= __("Payment Date") %></th>
+                    <th scope="col"><%= __("Amount") %></th>
+                    <th scope="col"><%= __("Month") %></th>
+                    <th scope="col"><%= __("Employee ID") %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let total3= 0 %> 
+                <% salaries.forEach((salary, index) => { %>
+                    <% total3 = total3 + salary.amount %>
+                    <tr>
+                        <th scope="row"><%= salary.sal_id %></th>
+                        <td><%= salary.pay_date %></td>
+                        <td><%= salary.amount %></td>
+                        <td><%= salary.sal_month %></td>
+                        <td><%= salary.e_id %></td>
+                    </tr>
+                    <tr class="table-warning">
+                        <% }) %>
+                        <th scope="row">Total</th>
+                        <td colspan="4" class="font-weight-bold"><%= total3 %></td>
+                    </tr> 
+            </tbody>
+        </table>                 
+    </div>
+    <% } else { %>
+        <p class="text-center"><%= __("No Salaries Found") %></p>
+    <% } %>
+    <hr>
+    </div>
+</div>
+<% include partials/footer.ejs %>

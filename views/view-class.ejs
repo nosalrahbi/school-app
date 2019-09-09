@@ -1,0 +1,53 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+    <div class="container">
+        <div class="col-12">
+            <div class="form-row">
+                <label class="col-md-2"  for="class_id"><%= __("Class ID") %></label>
+                <input type="number" class="col-md-4 form-control" name="class_id" id="class_id" value ="<%= clas.class_id %>" placeholder="<%= clas.class_id %>" readonly>
+                <label class="col-md-2" for="class_name"><%= __("Class Name") %></label>
+                <input type="text" class="col-md-4 form-control" name="class_name" id="class_name"  value="<%= clas.class_name %>" placeholder="<%= clas.class_name %>" readonly>
+            </div> 
+        </div>
+        <div class="col-12">
+            <div class="form-row">
+                <label class="col-md-2" for="class_teacher"><%= __("Class Teacher") %></label>
+                <input type="text" class="col-md-4 form-control" name="class_teacher" id="class_teacher" value="<%= clas.class_teacher %>" placeholder="<%= clas.class_teacher %>" readonly>
+            </div>
+        </div>
+    </div>
+    <form class="add-bus-form" action="" method="post" enctype="multipart/form-data">
+    <div class="table-wrapper">
+        <% if (students.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><%= __("ID") %></th>
+                        <th scope="col"><%= __("Image") %></th>
+                        <th scope="col"><%= __("Name") %></th>
+                        <th scope="col"><%= __("Address") %></th>
+                        <th scope="col"><%= __("Class") %></th>
+                        <th scope="col"><%= __("Bus Id") %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% students.forEach((student, index) => { %>
+                        <tr>
+                            <th scope="row"><%= student.id %></th>
+                            <td><img src="/assets/img/<%= student.image %>" class="rounded-circle student-img" alt=""></td>
+                            <td><%= student.first_name %>  <%= student.last_name %></td>
+                            <td>@<%= student.address %></td>
+                            <td><%= student.class %></td>
+                            <td><%= student.bus_id %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+         <% } else { %>
+            <p class="text-center">No students found. Go <a href="/add" >here</a> to add student.</p>
+        <% } %>
+    </div>
+</div>
+</form>
+</body>
+<% include partials/footer.ejs %>

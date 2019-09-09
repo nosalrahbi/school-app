@@ -1,0 +1,29 @@
+<% include ../partials/parentHeader.ejs %>
+<% include ../partials/messages.ejs %>
+    <div class="container">
+        <% if(resultClass && homeworks) { %>
+        <% resultClass.forEach(function (clas, index) { %>
+            <div class="table-wrapper">
+                <table class="table table-hovered">
+                    <thead class="thead-dark">
+                        <tr><th><%= clas.subject_ename %></th></tr>
+                    </thead>
+                <% homeworks.forEach((homework, index) => { %>
+                    <% if (homework.subject_id === clas.subject_id) { %>
+                    <tbody>
+                        <tr><td><%= homework.homework %></td></tr>
+                    </tbody>
+                    <% } %>
+                <% })%>
+                </table>
+            </div>
+        <% })%>
+        <% } else { %>
+        <div>
+            <p class="text-center">No Homeworks found</p>
+        </div>
+        <% } %>
+    </div>
+</div>
+</body>
+<% include ../partials/footer.ejs %>

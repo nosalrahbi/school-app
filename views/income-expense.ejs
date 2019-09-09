@@ -1,0 +1,43 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+<div class="container">
+    <form class="add-payment-form" action="" method="post" enctype="multipart/form-data">
+        <div class = "form-group row">
+            <label class="control-label col-sm-2" for = "st_id"><%= __("Category") %></label>
+            <input type = "text" class = "form-control col-sm-10" name="in_category" id ="in_category">
+        </div>
+        <div class = "form-group row">
+            <label class = "control-label col-sm-2" for = "pay_date"><%= __("Invoice No") %></label>
+            <input type = "number" class = "form-control col-sm-10" name="invoice_no" id ="invoice_no">
+        </div>
+        <div class = "form-group row">
+            <label class="control-label col-sm-2" for = "amount"><%= __("Item") %></label>
+            <input type = "text" class = "form-control col-sm-10" name="in_item" id ="in_item">
+        </div>
+        <div class = "form-group row">
+            <label class = "control-label col-sm-2" for = "category"><%= __("Quantity") %></label>
+            <input type = "number" class = "form-control col-sm-10" name="in_quantity" id ="in_quantity" value=1>
+        </div>
+        <div class = "form-group row">
+            <label class = "control-label col-sm-2" for = "note"><%= __("Price") %></label>
+            <input type = "number" class = "form-control col-sm-10" name="in_price" id ="in_price">
+        </div>
+        <div class = "form-group row">
+            <label class = "control-label col-sm-2" for = "category"><%= __("Date") %></label>
+            <input type = "date" class = "form-control col-sm-10" name="in_date" id ="in_date" required>
+        </div>
+        <div class = "form-group row">
+            <label class = "control-label col-sm-2" for = "note"><%= __("Description") %></label>
+            <input type = "text" class = "form-control col-sm-10" name="in_desc" id ="in_desc">
+        </div>
+        <div class="btn-toolbar tetx-center">
+                <label class="col-sm-1"> </label>
+            <button type="submit" class="btn btn-success col-sm-3"><%= __("Save") %></button>
+            <label class="col-sm-1"> </label>
+            <a href="/addincome" rel="noopener" class="btn btn-md btn-success col-sm-3"><%= __("Add Income") %></a>
+            <label class="col-sm-1"> </label>
+            <a href="/addexpense" rel="noopener" class="btn btn-md btn-success col-sm-3"><%= __("Add Expense") %></a>
+        </div>
+ </form> 
+</div>
+<% include partials/footer.ejs %>

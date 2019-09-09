@@ -1,0 +1,41 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+    <div class="table-wrapper">
+        <% if (classes.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><%= __("ID") %></th>
+                        <th scope="col"><%= __("Class Name") %></th>
+                        <th scope="col"><%= __("Class Teacher") %></th>
+                        <th scope= "col"><%= __("Action") %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% classes.forEach((clas, index) => { %>
+                        <tr>
+                            <th scope="row"><a href="/viewClass/<%= clas.class_id %>" rel="noopener" class="btn btn-sm btn-success"><%= clas.class_id %></th>
+                            <td><%= clas.class_name %></td>
+                            <td><%= clas.class_teacher %></td>
+                            <td>
+                                <a href="/editClass/<%= clas.class_id %>" rel="noopener" class="btn btn-sm btn-success"><%= __("Edit") %></a>
+                                <a href="/deleteClass/<%= clas.class_id %>" class="btn btn-sm btn-danger confirmation"><%= __("Delete") %></a>
+                                <a href="/addSt2Class/<%= clas.class_id %>/class/1" rel="noopener" class="btn btn-sm btn-warning"><%= __("Add Students") %></a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <div class="form-row text-center"> 
+                    <label class="col-sm-4"></label>    
+                    <a href="/addClass" rel="noopener" class="btn btn-sm btn-success col-sm-4"><%= __("Add New Class") %></a>
+                </div>
+            
+            
+        <% } else { %>
+            <p class="text-center">No classes found. Go <a href="/addClass" >here</a> to add Class.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+<% include partials/footer.ejs %>

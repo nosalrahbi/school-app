@@ -1,0 +1,55 @@
+<% include partials/header.ejs %>
+    <div class="container">
+        <% if (errors) { %>
+            <div class="alert alert-danger" role="alert" id="error-group" >
+                <h4><%=__("Registration Failed. Please correct the following errors ") %></h4>
+                <ul id="errors">
+                        <% errors.forEach((error) => { %>
+                            <li><%= error.msg %></li>
+                        <% }) %>
+                </ul>
+            </div>
+            <% } else  { %>
+            <div class="alert alert-success" role="alert" id="error-group" >
+                <h4><%=__("Registration Instruction:  ") %></h4>
+                <ul id="errors">
+                            <li><%=__("Username must be alphanumeric and at least 5 characters in length ") %></li>
+                            <li><%=__("Password must be at least 8 characters in length and contain atleast 1 number, 1 lower case and 1 upper case ") %></li>
+                </ul>
+            </div>
+            <% } %>
+        <div class="table-wrapper">
+            <form class="add-bus-form" action="" method="post" enctype="multipart/form-data">
+                <div class = "form-group row">
+                    <label class="control-label col-sm-2" for = "username"><%= __("User Name") %></label>
+                    <input type = "text" class = "form-control col-sm-6" name="username" id ="username" required>
+                </div>
+                <div class = "form-group row">
+                    <label class="control-label col-sm-2" for = "email"><%= __("Email") %></label>
+                    <input type = "email" class = "form-control col-sm-6" name="email" id ="email" required>
+                </div>
+                <div class = "form-group row">
+                    <label class = "control-label col-sm-2" for = "password"><%= __("Password") %></label>
+                    <input type = "text" class = "form-control col-sm-6" name="password" id ="password" required>
+                </div>
+                <div class = "form-group row">
+                    <label class = "control-label col-sm-2" for = "password2"><%= __("Confirm Password") %></label>
+                    <input type = "text" class = "form-control col-sm-6" name="password2" id ="password2" required>
+                </div>
+                <div class = "form-group row">
+                    <label class = "control-label col-sm-2" for = "st_id"><%= __("Student Id") %></label>
+                    <input type = "number" class = "form-control col-sm-6" name="st_id" st_id ="role" required>
+                </div>
+                <div class = "form-group row">
+                    <input type = "text" class = "form-control col-sm-6" name="role" id ="role" value="Parent" hidden>
+                </div>
+                <div class="form-row">
+                    <label class="col-sm-2"></label>      
+                    <button type="submit" class="btn btn-primary text-center col-sm-6"><%= __("Register") %></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<% include partials/footer.ejs %>

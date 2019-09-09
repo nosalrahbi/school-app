@@ -1,0 +1,109 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+<div class="container">
+    <% if (student) { %>
+        <form class="add-student-form" action="" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="col-md-8">
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="first-name"><%= __("First Name") %></label>
+                    <input type="text" class="form-control" name="first_name" id="first-name" value="<%= student.first_name %>" required>
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="last-name"><%= __("Last Name") %></label>
+                    <input type="text" class="form-control" name="last_name" id="last-name" value="<%= student.last_name %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="sex"><%= __("Sex") %></label>
+                    <select id="sex" name="sex" class="form-control" required>
+                        <option value="<%= student.sex %>" selected><%= student.sex %></option>
+                        <option>M</option>
+                        <option>F</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="class"><%= __("Class") %></label>
+                    <input type="text" class="form-control" name="class" id="class"  value="<%= student.class %>">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="passport_no"><%= __("Passport No") %></label>
+                    <input type="number" class="form-control" name="passport_no" id="passport_no" value="<%= student.passport_no %>">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="d_o_b"><%= __("DOB") %></label>
+                    <input type="date" class="form-control" name="d_o_b" id="d_o_b"  value="<%= student.d_o_b %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="bus"><%= __("Bus") %></label>
+                    <input type="text" class="form-control" name="bus_id" id="bus_id"  value="<%= student.bus_id %>">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="parents_phone"><%= __("Parent phone") %></label>
+                    <input type="number" class="form-control" name="parents_phone" id="parents_phone" value="0" placeholder="<%= student.parents_mobile %>" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 text-center">
+            <img src="/assets/img/<%= student.image %>" alt="Student photo" style="width:150px;height:200px;">
+        </div>
+        </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                        <label for="address"><%= __("Address") %></label>
+                    <input type="text" class="form-control" name="address" id="address" value="<%=student.address %>">
+                </div>
+                <div class="col-md-4">
+                        <label for="student-img"><b><%= __("Image") %></b></label><br>
+                        <input type="file" name="image" id="student-img" class="" value="<%= student.image%>">
+                    </div>
+            </div>
+            <hr>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="reg_fee"><%= __("Registration Fees") %></label>
+                    <input type="number" class="form-control" name="reg_fee" id="reg_fee" value="<%=student.reg_fee %>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="cloth_fee"><%= __("Costume Fees") %></label>
+                    <input type="number" class="form-control" name="cloth_fee" id="cloth_fee" value="<%=student.cloth_fee %>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="transport_fee"><%= __("Transport Fees") %></label>
+                    <input type="number" class="form-control" name="transport_fee" id="transport_fee" value="<%=student.transport_fee %>">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="tuition_fee"><%= __("Tuition Fees") %></label>
+                    <input type="number" class="form-control" name="tuition_fee" id="tuition_fee" value="<%=student.tuition_fee %>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="discount_fee"><%= __("Discount") %></label>
+                     <input type="number" class="form-control" name="discount_fee" id="discount_fee" value="<%=student.discount_fee %>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="active"><%= __("Active") %></label>
+                    <select id="active" name="active" class="form-control">
+                        <option value="1" selected><%= __("Active") %></option>
+                        <option value="0"><%= __("Inactive") %></option>
+                    </select>
+                </div>
+            </div>  
+            <div class="container-fluid text-center">
+                <button type="submit" class="btn btn-success col-sm-4"><%= __("Save") %></button>
+            </div>  
+            
+        </form>
+    <% } else { %>
+        <p class="text-center">Student Not Found. Go <a href="/add">here</a> to add student.</p>
+    <% } %>
+</div>
+</div>
+<% include partials/footer.ejs %>

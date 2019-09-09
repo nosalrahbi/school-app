@@ -1,0 +1,44 @@
+<% include ../partials/parentHeader.ejs %>
+<% include ../partials/messages.ejs %>
+<div class="container">
+    <div class="table-wrapper">
+        <% if (payments && payments.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><%= __("Payment ID") %></th>
+                        <th scope="col"><%= __("Payment Date") %></th>
+                        <th scope="col"><%= __("Amount") %></th>
+                        <th scope="col"><%= __("Category") %></th>
+                        <th scope="col"><%= __("Note") %></th>
+                        <th scope="col"><%= __("Student ID") %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% payments.forEach((payment, index) => { %>
+                        <tr>
+                            <th scope="row"><%= payment.pay_id %></th>
+                            <td><%= payment.pay_date %></td>
+                            <td><%= payment.amount %></td>
+                            <td><%= payment.category %></td>
+                            <td><%= payment.note %></td>
+                            <td><%= payment.st_id %></td>
+                        </tr>
+                    <% }) %>
+                        <tr>
+                            <th scope="row"><%= __("Total Fees") %></th>
+                            <th scope="row"><%= feeSum.FeeSum %></td>
+                            <th scope="row"><%= __("Total Paid") %></th>
+                            <th scope="row"><%= total.total %></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                </tbody>
+                <% } else { %><
+                <div>
+                <p class="text-center">Parents Not Found</p>
+                <% } %> 
+            </div> 
+            </table>
+        </div>     
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,24 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+
+    <div class="container">
+        <div class="table-wrapper">
+            <form class="add-bus-form" action="" method="post" enctype="multipart/form-data">
+                <div class = "form-group row">
+                    <label class="control-label col-sm-2" for = "username"><%= __("User Name") %></label>
+                    <input type = "text" class = "form-control col-sm-6" name="username" id ="username" required>
+                </div>
+                <div class = "form-group row">
+                    <label class = "control-label col-sm-2" for = "password"><%= __("Password") %></label>
+                    <input type = "text" class = "form-control col-sm-6" name="password" id ="password" required>
+                </div>
+                <div class="form-row"> 
+                    <label class = "control-label col-sm-3"></label>     
+                    <button type="submit" class="btn btn-primary col-sm-4 float-right"><%= __("Login") %></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<% include partials/footer.ejs %>

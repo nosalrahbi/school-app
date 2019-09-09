@@ -1,0 +1,66 @@
+.table-wrapper {
+    margin-top: 10px;
+}
+
+.student-img {
+    width: 40px;
+    height: 40px;
+}
+
+.add-student-form, .add-payment-form {
+    margin-top: 50px;
+}
+.teacherName {
+    text-align: center;
+}
+ul {
+    padding-inline-start: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.textalignl {
+    text-align: left;
+}
+.textalignr {
+    text-align: right;
+}
+.table-periods td {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.master {
+    padding: 5px;
+    margin: 5px;
+    background: #c6e686;
+}
+footer {
+    position: relative !important;
+    background: rgb(240, 198, 182);
+    padding: 5px;
+    margin-top: 5px;
+}
+.top-header {
+    background: rgb(240, 198, 182);
+}
+.messages {
+    margin-top: 10px;
+    margin-bottom: 10px, 
+}
+.message {
+    margin: 0 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: none;
+    border-radius: 0px;
+}
+.main-parent {
+    background-color: bisque;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-style: none;
+}
+.page-number {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,100 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+    <div class="container">
+        <form class="add-student-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name"><%= __("First Name") %></label>
+                    <input type="text" class="form-control" name="first_name" id="first-name" placeholder="First Name" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="last_name"><%= __("Last Name") %></label>
+                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" required>
+                </div>
+                <div class="form-group col-md-4">
+                        <label for="sex"><%= __("Sex") %></label>
+                        <select id="sex" name="sex" class="form-control" required>
+                            <option value="" selected>Select Gender</option>
+                            <option>M</option>
+                            <option>F</option>
+                        </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="passport_no"><%= __("Passport No") %></label>
+                    <input type="text" class="form-control" name="passport_no" id="passport_no" placeholder="Passport No">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="d_o_b"><%= __("DOB") %></label>
+                    <input type="date" class="form-control" name="d_o_b" id="d_o_b" placeholder="DOB" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="class"><%= __("Class") %></label>
+                    <input type="number" class="form-control" name="class" id="class" placeholder="Class">
+                </div>
+            </div>    
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="bus"><%= __("Bus") %></label>
+                    <input type="number" class="form-control" name="bus_id" id="bus_id" placeholder="Bus">
+                </div>
+                <div class="form-group col-md-8">
+                        <label for="address"><%= __("Address") %></label>
+                    <input type="text" class="form-control" name="address" id="address" placeholder="Address">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="parents_phone"><%= __("Parent phone") %></label>
+                    <input type="number" class="form-control" name="parents_phone" id="parents_phone" placeholder="phone" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="active"><%= __("Active") %></label>
+                    <select id="active" name="active" class="form-control" required>
+                        <option value="Yes" selected>Active</option>
+                        <option value="No">Inactive</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="reg_fee"><%= __("Registration Fees") %></label>
+                    <input type="number" class="form-control" name="reg_fee" id="reg_fee" placeholder="Registration Fees">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="cloth_fee"><%= __("Costume Fees") %></label>
+                    <input type="number" class="form-control" name="cloth_fee" id="cloth_fee" placeholder="Costume Fees">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="transport_fee"><%= __("Transport Fees") %></label>
+                    <input type="number" class="form-control" name="transport_fee" id="transport_fee" placeholder="Transport Fees">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="tuition_fee"><%= __("Tuition Fees") %></label>
+                    <input type="number" class="form-control" name="tuition_fee" id="tuition_fee" placeholder="Tuition Fees">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="discount_fee"><%= __("Discount") %></label>
+                     <input type="number" class="form-control" name="discount_fee" id="discount_fee" placeholder="Discount">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label for="student-img"><b><%= __("Image") %></b></label><br>
+                    <i class="fas fa-paperclip fa-lg" aria-hidden="true"></i>
+                    <input type="file" name="image" id="student-img" class="">
+                </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary col-md-4"><%= __("Save") %></button>  
+            </div>
+            
+        </form>
+    </div>
+</div>
+</body>
+<% include partials/footer.ejs %>

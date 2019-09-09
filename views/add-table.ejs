@@ -1,0 +1,28 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+<div class="container">
+    <form class="add-table-form" action="" method="post" enctype="multipart/form-data">
+    <div class="table-wrapper">
+        <div class = "form-group row justify-content-center">
+            <label class="control-label col-sm-2" for = "table_name"><%= __("Table name") %></label>
+            <input type = "text" class = "form-control col-sm-6" name="table_name" id ="table_name">
+        </div>
+        <div class = "form-group row justify-content-center">
+            <label class="control-label col-sm-2" for = "class_id"><%= __("Class") %></label>
+            <select class = "form-control col-sm-6" name="class_id">
+                <% clases.forEach((clas, index) => { %>
+                    <option value="<%= clas.class_id %>"><%= clas.class_name %></option>
+                <% }) %>   
+            </select>
+        </div>
+        <div class = "form-group row justify-content-center">
+            <label class="control-label col-sm-2" for = "up_date"><%= __("Start date") %></label>
+            <input type = "date" class = "form-control col-sm-6" name="up_date" id ="up_date">
+        </div>
+        <div class="form-group row justify-content-center">
+          <button type="submit" class="btn btn-primary col-md-4"><%= __("Create") %></button>  
+        </div>   
+    </form>
+    </div>
+</div>
+<% include partials/footer.ejs %>

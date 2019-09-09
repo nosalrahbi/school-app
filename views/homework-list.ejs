@@ -1,0 +1,31 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+    <div class="container">
+        <div class="table-wrapper">
+            <form class="add-bus-form" action="" method="post" enctype="multipart/form-data"> 
+                <div class="form-group row">
+                    <label class = "control-label col-sm-2" for = "class_id"><%= __("Select class") %></label>
+                    <select class="form-control col-sm-6" name="class_id">
+                    <% clases.forEach((clas, index) => { %>
+                        <option value="<%= clas.class_id%>"><%= clas.class_name%></option>
+                    <% }) %>     
+                    </select>
+                </div> 
+                <div class="form-group row">
+                    <label class = "control-label col-sm-2" for = "task_date"><%= __("Select date") %></label>
+                    <select class="form-control col-sm-6" name="task_date">
+                    <% h_dates.forEach((h_date, index) => { %>
+                        <option value="<%= h_date.task_date %>"><%= h_date.task_date %></option>
+                    <% }) %>     
+                    </select>
+                </div> 
+                <div class="form-row text-center">
+                    <label class="col-sm-2"></label>      
+                    <button type="submit" class="btn btn-primary col-sm-4"><%= __("Search") %></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<% include partials/footer.ejs %>

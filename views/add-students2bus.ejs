@@ -1,0 +1,65 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+    <div class="container">
+        <div class="col-12">
+            <div class="form-row">
+                    <label class="col-md-2"  for="bus_id"><%= __("Bus ID") %></label>
+                    <input type="number" class="col-md-4 form-control" name="bus_id" id="bus_id" value ="<%= bus.bus_id %>" placeholder="<%= bus.bus_id %>" readonly>
+                    <label class="col-md-2" for="bus_name"><%= __("Bus Name") %></label>
+                    <input type="text" class="col-md-4 form-control" name="bus_name" id="bus_name" value="<%= bus.bus_name %>" placeholder="<%= bus.bus_name %>" readonly>
+            </div> 
+            </div>
+            <div class="col-12">
+                <div class="form-row">
+                    <label class="col-md-2" for="driver"><%= __("Driver") %></label>
+                    <input type="text" class="col-md-4 form-control" name="driver" id="driver"  value="<%= bus.driver %>" placeholder="<%= bus.driver %>" readonly>
+                    <label class="col-md-2" for="bus_super"><%= __("Supervisor") %></label>
+                    <input type="text" class="col-md-4 form-control" name="bus_super" id="bus_super" value="<%= bus.bus_super %>" placeholder="<%= bus.bus_super %>" readonly>
+                </div>
+        </div>
+    </div>
+    <form class="add-bus-form" action="/addSt2Bus/<%= bus_id %>" method="post" enctype="multipart/form-data">
+    <div class="table-wrapper">
+        <% if (students.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><a href="/addSt2Bus/<%= bus_id %>/id/1" rel="noopener"><%= __("ID") %></a></th>
+                        <th scope="col"><%= __("Image") %></th>
+                        <th scope="col"><a href="/addSt2Bus/<%= bus_id %>/first_name/1" rel="noopener"><%= __("First Name") %></a></th>
+                        <th scope="col"><%= __("Address") %></th>
+                        <th scope="col"><%= __("Class") %></th>
+                        <th scope="col"><a href="/addSt2Bus/<%= bus_id %>/bus_id/1" rel="noopener"><%= __("Bus Id") %></a></th>
+                        <th scope="col"><%= __("Action") %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% students.forEach((student, index) => { %>
+                        <tr>
+                            <th scope="row"><input type="number" name="student_id" id="student_id" value="<%= student.id %>" readonly></th>
+                            <td><img src="/assets/img/<%= student.image %>" class="rounded-circle student-img" alt=""></td>
+                            <td><%= student.first_name %>  <%= student.last_name %></td>
+                            <td>@<%= student.address %></td>
+                            <td><%= student.class %></td>
+                            <td><%= student.bus_id %></td>
+                            <td><input type="hidden" name="set_bus" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary col-md-4"><%= __("Save") %></button>  
+              </div>
+         <% } else { %>
+            <p class="text-center">No students found. Go <a href="/add" >here</a> to add student.</p>
+        <% } %>
+    </div>
+    <div class="page-number text-center">
+        <% for (let i=1; i<=pages; i++) { %>
+        <a href="/addSt2Bus/<%= bus_id %>/<%= order%>/<%= i %>" rel="noopener" class="btn btn-sm btn-success"><%= i %></a>
+        <% } %>   
+    </div>
+</div>
+</form>
+</body>
+<% include partials/footer.ejs %>

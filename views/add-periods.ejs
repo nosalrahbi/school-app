@@ -1,0 +1,323 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+<div class="container-fluid">
+    <form class="add-periods-form" action="/savePeriods" method="post" enctype="multipart/form-data">
+    <div class="table-wrapper">
+        <div class = "form-group row justify-content-center">
+            <label class="control-label col-sm-2" for = "table_name"><%= __("Table name") %></label>
+            <input type = "text" class = "form-control col-sm-6" name="table_name" id ="table_name" value="<%= t_name %>" readonly>
+        </div>
+        <table class="table table-hover table-bordered table-periods">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"><%= __("Day") %></th>
+                    <th scope="col"><%= __("Period 1") %></th>
+                    <th scope="col"><%= __("Period 2") %></th>
+                    <th scope="col"><%= __("Period 3") %></th>
+                    <th scope="col"><%= __("Period 4") %></th>
+                    <th scope="col"><%= __("Period 5") %></th>
+                    <th scope="col"><%= __("Period 6") %></th>
+                    <th scope="col"><%= __("Period 7") %></th>
+                    <th scope="col"><%= __("Period 8") %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"><%=__("Sunday") %></th>
+                    <td>
+                        <select name="a1">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="a2">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="a3">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td><select name="a4">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="a5">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="a6">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="a7">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="a8">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><%=__("Monday") %></th>
+                    <td>
+                        <select name="b1">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="b2">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="b3">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td><select name="b4">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="b5">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="b6">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="b7">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="b8">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><%=__("Tuesday") %></th>
+                    <td>
+                        <select name="c1">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="c2">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="c3">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td><select name="c4">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="c5">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="c6">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="c7">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="c8">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><%=__("Wednesday") %></th>
+                    <td>
+                        <select name="d1">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="d2">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="d3">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option  value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td><select name="d4">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="d5">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="d6">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="d7">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="d8">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><%=__("Thursday") %></th>
+                    <td>
+                        <select name="e1">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="e2">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="e3">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td><select name="e4">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="e5">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="e6">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="e7">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                    <td>
+                        <select name="e8">
+                        <% subjects.forEach((subject, index) => { %>
+                            <option value="<%= subject.subject_id %>"><%= subject.subject_ename %></option>
+                        <% }) %>   
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row justify-content-center">
+            <button type="submit" class="btn btn-primary col-md-4 text-center"><%= __("Save") %></button>
+        </div>
+        </form>
+    </div>
+</div>
+<% include partials/footer.ejs %>

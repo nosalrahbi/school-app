@@ -1,0 +1,10 @@
+<% include ../partials/parentHeader.ejs %>
+<% include ../partials/messages.ejs %>
+<div class="container text-center">
+    <div class="main-parent btn btn-warning col-sm-6"><a href="/parent/student/<%= stid %>" >Student Details</a></div>
+    <div class="main-parent btn btn-warning col-sm-6"><a href="/parent/parents/<%= stid %>" >Registered Parents</a></div>
+    <div class="main-parent btn btn-warning col-sm-6"><a href="/parent/fees/<%= stid %>" >School Fee status</a></div>
+    <div class="main-parent btn btn-warning col-sm-6"><a href="/parent/homework/<%= stid %>" >Homework</a></div>
+    <div class="main-parent btn btn-warning col-sm-6"><a href="/parent/table/<%= stid %>" >Timetable</a></div>
+</div>
+<% include ../partials/footer.ejs %>

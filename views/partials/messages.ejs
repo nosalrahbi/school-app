@@ -1,0 +1,17 @@
+<div class="container messages text-center col-sm-4">
+<% if(success_msg) { %>
+    <% success_msg.forEach((message, index) => { %>
+        <div class="alert alert-success message">
+            <li><%= message %></li>
+        </div> 
+    <% }) %>  
+<% }  %>    
+
+<% if(error_msg) { %>
+    <% error_msg.forEach((message, index) => { %>
+        <div class="alert alert-danger message">
+            <li><%= message %></li>
+        </div> 
+    <% }) %> 
+<% }  %>  
+</div>

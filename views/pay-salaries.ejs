@@ -1,0 +1,54 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+    <div class="table-wrapper">
+        <% if (teachers.length > 0) {%>
+            <form class="add-student-form" action="" method="post" enctype="multipart/form-data">
+                <div class="form-row text-center">
+                    <label class="col-sm-4"></label> 
+                    <label class="col-sm-2"><h5> Salaries for the Month of </h5></label>    
+                    <input type="date" class="form-control col-sm-2" name="e_month" id="e_month" required>
+                </div>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><%= __("Select") %></th>
+                        <th scope="col"><%= __("Teacher Id") %></th>
+                        <th scope="col"><%= __("First Name") %></th>
+                        <th scope="col"><%= __("Last Name") %></th>
+                        <th scope="col"><%= __("Salary") %></th>
+                        <th scope="col"><%= __("Bank") %></th>
+                        <th scope="col"><%= __("Account No") %></th>
+                        <th scope="col"><%= __("Amount Paid") %></th>
+                        <th scope="col"><%= __("Pay date") %></th>
+                        <th scope="col"><%= __("Note") %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% teachers.forEach((teacher, index) => { %>
+                        <tr>
+                            <!-- <th scope="row"><input type="checkbox" name="use"></th> -->
+                            <td scope="row"><input type="hidden" name="use" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value"></td>
+                            <td><input type="text" class="form-control" name="e_id" id="e_id" value="<%= teacher.e_id %>" placeholder="<%= teacher.e_id %>" readonly></td>
+                            <td><input type="text" class="form-control" name="e_firstname" id="e_firstname" value="<%= teacher.e_firstname %>" placeholder="<%= teacher.e_firstname %>" readonly></td>
+                            <td><input type="text" class="form-control" name="e_lastname" id="e_lastname" value="<%= teacher.e_lastname %>" placeholder=<%= teacher.e_lastname %> readonly></td>
+                            <td><input type="number" class="form-control" name="e_salary" id="e_salary" value="<%= teacher.e_salary %>" placeholder=<%= teacher.e_salary %> readonly></td>
+                            <td><input type="text" class="form-control" name="bank" id="bank" value="<%= teacher.bank %>" placeholder=<%= teacher.bank %> readonly></td>
+                            <td><input type="number" class="form-control" name="AccNo" id="AccNo" value="<%= teacher.AccNo %>" placeholder=<%= teacher.AccNo %> readonly></td>
+                            <td><input type="number" class="form-control" name="amount" id="amount" value= "<%= teacher.e_salary %>" required></td>
+                            <td><input type="date" class="form-control" name="pay_date" id="pay_date" placeholder="pay_date" required></td>
+                            <td><input type="text" class="form-control" name="note" id="note" value=" "></td>
+                    <% }) %>
+                </tbody>
+            </table>
+            <div class="form-row text-center"> 
+                <label class="col-sm-4"></label>    
+                <button type="submit" class="btn btn-primary col-sm-4"><%= __("Save") %></button>
+            </div>
+        </form>
+        <% } else { %>
+            <p class="text-center">No registered teachers found</p>
+        <% } %>
+    </div>
+</div>
+</body>
+<% include partials/footer.ejs %>

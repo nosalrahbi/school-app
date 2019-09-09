@@ -1,0 +1,65 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+<div class="container">
+    <div class="table-wrapper">
+            <% if (users.length > 0) {%>
+                <table class="table table-hovered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col"><%= __("User Id") %></th>
+                            <th scope="col"><%= __("User Name") %></th>
+                            <th scope="col"><%= __("Email") %></th>
+                            <th scope="col"><%= __("Current Role") %></th>
+                            <th scope="col"><%= __("Enabled") %></th>
+                            <th scope="col"><%= __("New Role") %></th>
+                            <th scope="col"><%= __("Action") %></th>
+                            <th scope="col"><%= __("Active") %></th>
+                            <th scope="col"><%= __("Delete") %></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% users.forEach((user, index) => { %>
+                            <tr>
+                                <th scope="row"><%= user.user_id %></th>
+                                <td><%= user.user_name %></td>
+                                <td><%= user.email %></td>
+                                <td><%= user.role %></td>
+                                <td><%= user.Enabled %></td>
+                                    
+                                <td>
+                                <form method="post" action="/changeRoleUser/<%= user.user_id %>">
+                                    <select name="newRole" class="form-control inline">
+                                        <option value="Admin">Admin</option>
+                                        <option value="User">User</option>
+                                        <option value="Parent">Parent</option>
+                                        <option value="Guest">Guest</option>
+                                    </select>
+                                </td><td>
+                                    <button type="submit" class="btn btn-sm btn-info"><%= __("Change Role") %></button>
+                                </td><td>
+                                </form>
+                                <form method="post" action="/enableUser/<%= user.user_id %>">
+                                        <input type="hidden" name="en" value="<%= user.Enabled %>">
+                                        <% if (user.Enabled === "Yes") { %>
+                                            <button type="submit" class="btn btn-sm btn-warning"><%= __("Disable") %></button>
+                                        <% } else { %>
+                                            <button type="submit" class="btn btn-sm btn-success"><%= __("Enable") %></button> 
+                                        <% } %>
+                                    </td>
+                                    </form>                            
+                                <td>
+                                    <a href="/deleteUser/<%= user.user_id %>" class="btn btn-sm btn-danger confirmation"><%= __("Delete") %></a>                                  
+                                </td>
+
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+        </div>
+    <% } else { %>
+        <p class="text-center">No users Found. Go <a href="/register">here</a> to register User</p>
+    <% } %>
+    </div>
+    </div>
+    <% include partials/footer.ejs %>

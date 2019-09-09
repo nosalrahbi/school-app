@@ -1,0 +1,36 @@
+<% include partials/header.ejs %>
+<div class="container">
+<% include partials/messages.ejs %>
+    <div class="col-12">
+        <div class="form-row master">
+            <label class="col-md-4"  for="user"><h5><%= __("User Name") %></h5></label>
+            <input type="text" class="col-md-4 form-control" name="user" id="user"  placeholder="<%= user %>" readonly>
+        </div>
+        <div class="form-row master">
+            <label class="col-md-4"  for="lastVisit"><%= __("Last logged in") %></label>
+            <input type="datetime" class="col-md-4 form-control" name="lastVisit" id="lastVisit"  placeholder="<%= lastVisit %>" readonly>
+        </div> 
+        <hr>
+        <div class="form-row master">
+            <label class="col-md-4"  for="students"><%= __("Number of registered students") %></label>
+            <input type="text" class="col-md-4 form-control" name="students" id="students"  placeholder="<%= students%>" readonly>
+        </div>  
+        <div class="form-row master">
+            <label class="col-md-4"  for="parents"><%= __("Number of registered parents") %></label>
+            <input type="text" class="col-md-4 form-control" name="parents" id="parents"  placeholder="<%=parents %>" readonly>
+        </div>  
+        <div class="form-row master">
+            <label class="col-md-4"  for="teachers"><%= __("Number of school teachers") %></label>
+            <input type="text" class="col-md-4 form-control" name="teachers" id="teachers"  placeholder="<%=teachers %>" readonly>
+        </div>  
+        <div class="form-row master">
+            <label class="col-md-4"  for="buses"><%= __("Number of buses") %></label>
+            <input type="text" class="col-md-4 form-control" name="buses" id="buses"  placeholder="<%= buses%>" readonly>
+        </div>  
+        <div class="form-row master">
+            <label class="col-md-4"  for="classes"><%= __("Number of classes") %></label>
+            <input type="text" class="col-md-4 form-control" name="classes" id="classes"  placeholder="<%=classes %>" readonly>
+        </div>   
+
+
+<% include partials/footer.ejs %>

@@ -1,0 +1,35 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+    <div class="container">
+        <form class="add-class-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group  col-md-6">
+                    <label for="class_id"><%= __("Class ID") %></label>
+                    <input type="number" class="form-control" name="class_id" id="class_id" placeholder="Auto-Generated" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="class_name"><%= __("Class Name") %></label>
+                    <input type="text" class="form-control" name="class_name" id="class_name" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="class_teacher"><%= __("Class Teacher") %></label>
+                   <select name="class_teacher" id="class_teacher" class="browser-default custom-select">
+                    <% teachers.forEach((teacher, index) => { %> 
+                        <option value="<%= teacher.name %>"><%= teacher.name %></option> 
+                    <% }) %> 
+                   </select>
+                </div>
+            </div> 
+            <div class="form-row text-center"> 
+                <label class="col-sm-1"></label>    
+                <button type="submit" class="btn btn-primary col-sm-4"><%= __("Save") %></button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<% include partials/footer.ejs %>

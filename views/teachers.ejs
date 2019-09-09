@@ -1,0 +1,51 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+    <div class="table-wrapper">
+        <% if (teachers.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><%= __("ID") %></th>
+                        <th scope="col"><%= __("First Name") %></th>
+                        <th scope="col"><%= __("Last Name") %></th>
+                        <th scope="col"><%= __("Sex") %></th>
+                        <th scope="col"><%= __("DOB") %></th>
+                        <th scope="col"><%= __("Marital Status") %></th>
+                        <th scope="col"><%= __("Civil ID") %></th>
+                        <th scope="col"><%= __("Passport No") %></th>
+                        <th scope="col"><%= __("Address") %></th>
+                        <th scope="col"><%= __("Mobile") %></th>
+                        <th scope="col"><%= __("Active") %></th>
+                        <th scope="col"><%= __("Action") %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% teachers.forEach((teacher, index) => { %>
+                        <tr>
+                            <th scope="row"><a href="/editteacher/<%= teacher.e_id %>" rel="noopener"><%= teacher.e_id %></th>
+                            <td><%= teacher.e_firstname %></td>
+                            <td><%= teacher.e_lastname %></td>
+                            <td><%= teacher.e_sex %></td>
+                            <td><%= teacher.e_dob %></td>
+                            <td><%= teacher.marital %></td>
+                            <td><%= teacher.e_civilid %></td>
+                            <td><%= teacher.e_passport %></td>
+                            <td>@<%= teacher.e_address %></td>
+                            <td><%= teacher.e_mobile %></td>
+                            <td><%= teacher.active %></td>
+                            <td>
+                                <a href="/editTeacher/<%= teacher.e_id %>" rel="noopener" class="btn btn-sm btn-success"><%= __("Edit") %></a>
+                                <a href="/delete-teacher/<%= teacher.e_id %>" class="btn btn-sm btn-danger confirmation"><%= __("Delete") %></a>
+                                <a href="/salary-teacher/<%= teacher.e_id %>" class="btn btn-sm btn-danger"><%= __("Salaries") %></a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No teacherss found. Go <a href="/addTeacher" >here</a> to add teacher.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+<% include partials/footer.ejs %>
