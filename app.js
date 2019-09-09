@@ -17,9 +17,10 @@ const authorize = require('./helpers/authorize')
 const errorHandler = require('./helpers/error-handler');
 const {check, validationResult} = require('express-validator')
 const v = require('./helpers/validation')
-var multer = require('multer')
+var helmet = require('helmet');
 const flash = require('connect-flash');
 const session = require('express-session');
+var compression = require('compression');
 require('dotenv').config()
 
 
@@ -85,11 +86,13 @@ app.use(session({
     cookie: { maxAge: 60000 }}));
 app.use(flash());
 app.use(i18n.init);
+app.use(helmet());
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload());
+app.use(compression()); //Compress all routes
 
 // process.on('uncaughtException', (err) => {
 //     console.error('There was an uncaught error', err)

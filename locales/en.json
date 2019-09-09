@@ -187,5 +187,8 @@
 	"Income ID": "Income ID",
 	"Invoice no": "Invoice no",
 	"Expense ID": "Expense ID",
-	"Employee ID": "Employee ID"
+	"Employee ID": "Employee ID",
+	"Payments": "Payments",
+	"Incomes": "Incomes",
+	"Add New Subject": "Add New Subject"
 }

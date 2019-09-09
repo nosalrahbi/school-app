@@ -4,14 +4,16 @@
         <form class="add-student-form" action="" method="post" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-4">
+                    <label for=""><%= __("First Name") %></label>
                     <input type="text" class="form-control" name="first_name" id="first-name" placeholder="First Name" required>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-4">                        
+                    <label for=""><%= __("Last Name") %></label>
                     <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" required>
                 </div>
                 <div class="form-group col-md-4">
+                        <label for=""><%= __("Gender") %></label>
                         <select id="sex" name="sex" class="form-control" required>
-                            <option value="" selected>Select Gender</option>
                             <option>M</option>
                             <option>F</option>
                         </select>
@@ -19,17 +21,21 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
+                    <label for=""><%= __("Civil ID") %></label>
                     <input type="number" class="form-control" name="civil_id" id="civil_id" placeholder="Civil Id No" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for=""><%= __("Mobile No") %></label>
                     <input type="number" class="form-control" name="mobile" id="mobile" placeholder="Mobile No" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for=""><%= __("Student ID") %></label>
                     <input type="number" class="form-control" name="st_id" id="st_id" value="<%= st_id %>" readonly>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
+                    <label for=""><%= __("Email") %></label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                 </div>
             </div>
