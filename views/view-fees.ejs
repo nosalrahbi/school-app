@@ -1,0 +1,104 @@
+<% include partials/header.ejs %>
+<% include partials/messages.ejs %>
+<div class="container">
+    <% if (student) { %>
+        <form class="add-student-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row justify-content-center">
+                <div>
+                    <object data="/assets/img/<%= student.image %>" type="image/png">
+                        <img src="/assets/img/student.png" alt="/assets/img/student.png" style="width:150px;height:200px;">
+                    </object>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name"><%= __("First Name") %></label>
+                    <input type="text" class="form-control" name="first_name" id="first-name" value="<%= student.first_name %>" readonly>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="last-name"><%= __("Last Name") %></label>
+                    <input type="text" class="form-control" name="last_name" id="last-name" value="<%= student.last_name %>" readonly>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="id"><%= __("ID") %></label>
+                    <input type="text" class="form-control" name="id" id="id" value="<%= student.id %>" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="reg_fee"><%= __("Registration Fees") %></label>
+                        <input type="number" class="form-control" name="reg_fee" id="reg_fee" value="<%=student.reg_fee %>" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cloth_fee"><%= __("Costume Fees") %></label>
+                        <input type="number" class="form-control" name="cloth_fee" id="cloth_fee" value="<%=student.cloth_fee %>" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="transport_fee"><%= __("Transport Fees") %></label>
+                        <input type="number" class="form-control" name="transport_fee" id="transport_fee" value="<%=student.transport_fee %>" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="tuition_fee"><%= __("Tuition Fees") %></label>
+                        <input type="number" class="form-control" name="tuition_fee" id="tuition_fee" value="<%=student.tuition_fee %>" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="discount_fee"><%= __("Discount") %></label>
+                         <input type="number" class="form-control" name="discount_fee" id="discount_fee" value="<%=student.discount_fee %>" readonly>
+                    </div>
+                </div>
+                <% } else { %>
+                    <p class="text-center">No students found. Go <a href="/add" >here</a> to add student.</p>
+                <% } %>
+                <hr>
+                <div class="table-wrapper">
+                        <% if (payments.length > 0) {%>
+                            <table class="table table-hovered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col"><%= __("Payment ID") %></th>
+                                        <th scope="col"><%= __("Payment Date") %></th>
+                                        <th scope="col"><%= __("Amount") %></th>
+                                        <th scope="col"><%= __("Category") %></th>
+                                        <th scope="col"><%= __("Note") %></th>
+                                        <th scope="col"><%= __("Student ID") %></th>
+                                        <th scope="col"><%= __("Action") %> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% payments.forEach((payment, index) => { %>
+                                        <tr>
+                                            <th scope="row"><%= payment.pay_id %></th>
+                                            <td><%= payment.pay_date %></td>
+                                            <td><%= payment.amount %></td>
+                                            <td><%= payment.category %></td>
+                                            <td><%= payment.note %></td>
+                                            <td><%= payment.st_id %></td>
+                                            <td>
+                                                <a href="/deletePayment/<%= payment.pay_id %>" class="btn btn-sm btn-danger confirmation"><%= __("Delete") %></a>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+                                        <tr class="btn-info">
+                                            <th scope="row"><%= __("Total Fees") %></th>
+                                            <th scope="row"><%= feeSum.FeeSum %></td>
+                                            <th scope="row"><%= __("Total Paid") %></th>
+                                            <th scope="row"><%= total.total %></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                            <div class="text-center">
+                               <a href="/fees/<%= student.id %>" rel="noopener" class="btn btn-lg btn-success"><%= __("Add Payment") %></a>  
+                            </div>
+                            
+                    </div>
+                <% } else { %>
+                    <p class="text-center">No Payments Found. Go <a href="/fees/<%=student.id %>">here</a> to add Payment</p>
+                <% } %>
+            </div>
+        </div>
+        <% include partials/footer.ejs %>

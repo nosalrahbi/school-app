@@ -1,6 +1,7 @@
 <% include partials/header.ejs %>
 <% include partials/messages.ejs %>
-<div class="container-fluid">  
+<div class="container-fluid"> 
+    <% if (periods.length > 0 ) { %> 
     <div class="table-wrapper">
         <div class = "form-group row justify-content-center">
             <label class="control-label col-sm-1" for = "table_name"><%= __("Table name") %></label>
@@ -41,5 +42,8 @@
             </tbody>
         </table>
     </div>
+    <% } else { %>
+        <p class="text-center">No tables found</p>
+    <% } %>
 </div>
 <% include partials/footer.ejs %>

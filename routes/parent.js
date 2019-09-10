@@ -186,7 +186,8 @@ module.exports= {
                     req.flash('error_msg', 'No tables found');
                     return res.redirect('/parent/main');
                 } 
-                db.query(q, result1[0].id, (err, result2) => {
+                if (result1[0]){
+                  db.query(q, result1[0].id, (err, result2) => {
                     if (err1) {
                         req.flash('error_msg', 'Error loading tables');
                         return res.redirect('/parent/main');
@@ -198,8 +199,17 @@ module.exports= {
                     ,periods: result2
                     ,table: result1[0] 
                     })               
-                })  
+                })    
+                } else {
+                    res.render('view-Table.ejs', {
+                        title: 'View Timetble'
+                        ,user: req.decoded.user
+                        , message:''
+                        ,periods: ''
+                        ,table: '' 
+                        })               
+                    }     
+                }) 
              })
-        })
+        }
     }
-}

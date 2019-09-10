@@ -189,9 +189,9 @@ module.exports = {
         let studentId = req.params.id;
         let query = "SELECT * FROM students WHERE students.id = ?";
         let queryParents = "SELECT * FROM parents WHERE st_id = ?";
-        let queryPayments = "SELECT * FROM payments WHERE st_id = ?";
-        let queryPaid = "SELECT SUM(amount) AS total FROM payments WHERE st_id = ?";
-        let queryDue = "SELECT (reg_fee+cloth_fee+transport_fee+tuition_fee-discount_fee) As FeeSum FROM students WHERE id=?";
+        //let queryPayments = "SELECT * FROM payments WHERE st_id = ?";
+        //let queryPaid = "SELECT SUM(amount) AS total FROM payments WHERE st_id = ?";
+        //let queryDue = "SELECT (reg_fee+cloth_fee+transport_fee+tuition_fee-discount_fee) As FeeSum FROM students WHERE id=?";
         db.query(query, studentId, (err, result) => {
             if (err) {
                 req.flash('error_msg', 'Error finding student');
@@ -202,6 +202,27 @@ module.exports = {
                     req.flash('error_msg', 'Error finding parents');
                     return res.redirect('back');
                 }
+                            res.render('main-student.ejs', {
+                                title: 'Student Details',
+                                student: result[0],
+                                parents: resultPr,
+                                message: ''
+                                ,user: req.decoded.user
+                            });
+                        });
+                    });
+    },
+    viewFess: (req, res) => {
+        let studentId = req.params.id;
+        let query = "SELECT * FROM students WHERE students.id = ?";
+        let queryPayments = "SELECT * FROM payments WHERE st_id = ?";
+        let queryPaid = "SELECT SUM(amount) AS total FROM payments WHERE st_id = ?";
+        let queryDue = "SELECT (reg_fee+cloth_fee+transport_fee+tuition_fee-discount_fee) As FeeSum FROM students WHERE id=?";
+        db.query(query, studentId, (err, result) => {
+            if (err) {
+                req.flash('error_msg', 'Error finding student');
+                return res.redirect('back');
+            }
                 db.query(queryPayments, studentId, (err, resultPm)=> {
                     if (err) {
                         req.flash('error_msg', 'Error fetching payments record');
@@ -217,10 +238,9 @@ module.exports = {
                                 req.flash('error_msg', 'Error fetching balance');
                                 return res.redirect('back');
                             }
-                            res.render('main-student.ejs', {
+                            res.render('view-fees.ejs', {
                                 title: 'Student Details',
                                 student: result[0],
-                                parents: resultPr,
                                 payments: resultPm,
                                 total: resultPaid[0],
                                 feeSum: resultDue[0],
@@ -230,9 +250,8 @@ module.exports = {
                         });
                     });
                 });
-            })
         })
-    }, 
+    } ,
     searchStudentPage: (req, res) => {
         res.render('search-students.ejs', {
             title: 'Search Students'
