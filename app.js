@@ -35,7 +35,7 @@ const {classesPage, addClassPage, addClass, editClassPage, editClass, deleteClas
 const {addSubjectPage, addSubject, viewSubjectsPage, deleteSubject} = require('./routes/subject')
 const {addHomeworkPage, addHomework, listHomeworkPage, findHomework} = require('./routes/homework')
 
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
 
 const db = mysql.createConnection({
@@ -93,9 +93,9 @@ app.use(fileUpload());
 app.use(compression()); //Compress all routes
 
 // process.on('uncaughtException', (err) => {
-//     console.error('There was an uncaught error', err)
-//     process.exit(1) //mandatory (as per the Node docs)
-// })
+//      console.error('There was an uncaught error', err)
+//      process.exit(1) //mandatory (as per the Node docs)
+//  })
 
 //routes for the app
 app.use(function(req, res, next){
