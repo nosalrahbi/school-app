@@ -35,6 +35,6 @@
     "nodemon": "^1.19.1",
     "passport-jwt": "^4.0.0",
     "req-flash": "0.0.3",
-    "sharp": "^0.23.0"
+    "sharp": "^0.30.5"
   }
 }
